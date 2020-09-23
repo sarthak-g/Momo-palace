@@ -41,3 +41,8 @@ section.cart .amount {
   color: #FE5F1E;
 }
 
+.login {
+  background: #f8f8f8;
+  min-height: calc(100vh - 86px);
+}
+

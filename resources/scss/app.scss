@@ -41,3 +41,8 @@ section.cart {
         color: $primary;
     }
 }
+
+.login {
+    background: $secondary;
+    min-height: calc(100vh - 86px);
+}
