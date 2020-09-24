@@ -13,117 +13,21 @@
 <section class="menu container mx-auto py-8">
     <h1 class="text-xl font-bold mb-8">All momos</h1>
     <div class="grid grid-cols-4 col-gap-12 row-gap-16">
-        <div class="w-64">
-            <img class="h-40 mb-4 mx-auto" src="/img/momo-menu.jpg">
-            <div class="text-center">
-                <h2 class="mb-4 text-lg">Special momo</h2>
-                <span class="size py-1 px-4 rounded-full uppercase text-xs">6 pcs</span>
-                <div class="flex items-center justify-around mt-3">
-                    <span class="font-bold text-lg">Rs. 250</span>
-                    <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                        <span>+</span>
-                        <span class="ml-4">Add</span>
-                    </button>
+        <% momos.forEach(function(momo){ %>
+            <div class="w-64">
+                <img class="h-40 mb-4 mx-auto" src="/img/<%= momo.image %>">
+                <div class="text-center">
+                    <h2 class="mb-4 text-lg"><%= momo.name %></h2>
+                    <span class="size py-1 px-4 rounded-full uppercase text-xs"><%= momo.size %></span>
+                    <div class="flex items-center justify-around mt-3">
+                        <span class="font-bold text-lg">Rs. <%= momo.price %></span>
+                        <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
+                            <span>+</span>
+                            <span class="ml-4">Add</span>
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="w-64">
-            <img class="h-40 mb-4 mx-auto" src="/img/momo-menu.jpg">
-            <div class="text-center">
-                <h2 class="mb-4 text-lg">Special momo</h2>
-                <span class="size py-1 px-4 rounded-full uppercase text-xs">6 pcs</span>
-                <div class="flex items-center justify-around mt-3">
-                    <span class="font-bold text-lg">Rs. 250</span>
-                    <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                        <span>+</span>
-                        <span class="ml-4">Add</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="w-64">
-            <img class="h-40 mb-4 mx-auto" src="/img/momo-menu.jpg">
-            <div class="text-center">
-                <h2 class="mb-4 text-lg">Special momo</h2>
-                <span class="size py-1 px-4 rounded-full uppercase text-xs">6 pcs</span>
-                <div class="flex items-center justify-around mt-3">
-                    <span class="font-bold text-lg">Rs. 250</span>
-                    <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                        <span>+</span>
-                        <span class="ml-4">Add</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="w-64">
-            <img class="h-40 mb-4 mx-auto" src="/img/momo-menu.jpg">
-            <div class="text-center">
-                <h2 class="mb-4 text-lg">Special momo</h2>
-                <span class="size py-1 px-4 rounded-full uppercase text-xs">6 pcs</span>
-                <div class="flex items-center justify-around mt-3">
-                    <span class="font-bold text-lg">Rs. 250</span>
-                    <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                        <span>+</span>
-                        <span class="ml-4">Add</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="w-64">
-            <img class="h-40 mb-4 mx-auto" src="/img/momo-menu.jpg">
-            <div class="text-center">
-                <h2 class="mb-4 text-lg">Special momo</h2>
-                <span class="size py-1 px-4 rounded-full uppercase text-xs">6 pcs</span>
-                <div class="flex items-center justify-around mt-3">
-                    <span class="font-bold text-lg">Rs. 250</span>
-                    <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                        <span>+</span>
-                        <span class="ml-4">Add</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="w-64">
-            <img class="h-40 mb-4 mx-auto" src="/img/momo-menu.jpg">
-            <div class="text-center">
-                <h2 class="mb-4 text-lg">Special momo</h2>
-                <span class="size py-1 px-4 rounded-full uppercase text-xs">6 pcs</span>
-                <div class="flex items-center justify-around mt-3">
-                    <span class="font-bold text-lg">Rs. 250</span>
-                    <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                        <span>+</span>
-                        <span class="ml-4">Add</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="w-64">
-            <img class="h-40 mb-4 mx-auto" src="/img/momo-menu.jpg">
-            <div class="text-center">
-                <h2 class="mb-4 text-lg">Special momo</h2>
-                <span class="size py-1 px-4 rounded-full uppercase text-xs">6 pcs</span>
-                <div class="flex items-center justify-around mt-3">
-                    <span class="font-bold text-lg">Rs. 250</span>
-                    <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                        <span>+</span>
-                        <span class="ml-4">Add</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="w-64">
-            <img class="h-40 mb-4 mx-auto" src="/img/momo-menu.jpg">
-            <div class="text-center">
-                <h2 class="mb-4 text-lg">Special momo</h2>
-                <span class="size py-1 px-4 rounded-full uppercase text-xs">6 pcs</span>
-                <div class="flex items-center justify-around mt-3">
-                    <span class="font-bold text-lg">Rs. 250</span>
-                    <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
-                        <span>+</span>
-                        <span class="ml-4">Add</span>
-                    </button>
-                </div>
-            </div>
-        </div>
+        <% }) %>
     </div>
 </section>
