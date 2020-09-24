@@ -21,7 +21,7 @@
                     <span class="size py-1 px-4 rounded-full uppercase text-xs"><%= momo.size %></span>
                     <div class="flex items-center justify-around mt-3">
                         <span class="font-bold text-lg">Rs. <%= momo.price %></span>
-                        <button class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
+                        <button data-momo="<%= JSON.stringify(momo) %>" class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
                             <span>+</span>
                             <span class="ml-4">Add</span>
                         </button>
