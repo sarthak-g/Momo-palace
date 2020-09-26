@@ -7,8 +7,9 @@ const expressLayout = require('express-ejs-layouts');
 const PORT = process.env.PORT || 3000;
 const mongoose = require('mongoose');
 const session = require('express-session'); // for session
-const flash = require('express-flash'); // for cookie
+const flash = require('express-flash');
 const MongoDbStore = require("connect-mongo")(session); // for storing and automatically removing session from mongodb
+const passport = require('passport');
 
 const url = 'mongodb://localhost/momo';
 mongoose.connect(url, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology:true, useFindAndModify: true });
@@ -36,15 +37,22 @@ app.use(session({
     cookie: { maxAge: 1000*60*60*24 } // store cookie for 24 hrs
 }))
 
-app.use(flash()) // use for creating cookie header when response came first time and sending with request header.
+const passportInit = require("./app/config/passport");
+passportInit(passport);
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(flash()) // use for creating header in request
 
 app.use(express.static('public'))
+app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
 // Global middleare
 // Here we are setting session to global so that anyone can accesss
 app.use((req, res, next) => {
     res.locals.session = req.session;
+    res.locals.user = req.user;
     next();
 })
 
