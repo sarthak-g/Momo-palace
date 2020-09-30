@@ -3,12 +3,22 @@ const bcrypt = require('bcrypt');
 const passport = require('passport');
 
 function authController() {
+
+    const _getRedirectUrl = (req) => {
+        return req.user.role === 'admin' ? '/admin/orders' : '/customers/orders'
+    }
+
     return {
         login(req, res) {
             res.render('auth/login')
         },
 
         postLogin(req, res, next) {
+            const { email, password } = req.body;
+            if(!email || !password) {
+                req.flash('error', 'All fields are required')
+                return res.redirect('/login')
+            }
             passport.authenticate('local', (err, user, info) => {
                 if(err) {
                     req.flash('error', info.message)
@@ -23,7 +33,7 @@ function authController() {
                         req.flash('error', info.message)
                         return next(err)
                     }
-                    return res.redirect('/')
+                    return res.redirect(_getRedirectUrl(req))
                 })
             })(req, res, next)
         },
