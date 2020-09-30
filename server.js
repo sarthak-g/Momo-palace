@@ -10,6 +10,7 @@ const session = require('express-session'); // for session
 const flash = require('express-flash');
 const MongoDbStore = require("connect-mongo")(session); // for storing and automatically removing session from mongodb
 const passport = require('passport');
+const Emitter = require('events');
 
 const url = 'mongodb://localhost/momo';
 mongoose.connect(url, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology:true, useFindAndModify: true });
@@ -27,6 +28,10 @@ let mongoStore = new MongoDbStore({
     mongooseConnection: connection,
     collection: 'sessions'
 })
+
+// Event Emitter
+const eventEmitter = new Emitter()
+app.set('eventEmitter', eventEmitter)
 
 // session config
 app.use(session({
@@ -63,6 +68,22 @@ app.set('view engine', 'ejs')
 
 require('./routes/web')(app);
 
-app.listen(3000, () => {
-    console.log(`listening on port ${PORT}`)
+const server = app.listen(PORT, () => {
+  console.log(`listening on port ${PORT}`);
+});
+
+
+const io = require('socket.io')(server)
+io.on('connection', (socket) => {
+    socket.on('join', (orderId) => { // 'join' is name of emitter which we gave
+        socket.join(orderId)
+    })
+})
+
+eventEmitter.on('orderUpdated', (data) => {
+    io.to(`order_${data.id}`).emit('orderUpdated', data)
+})
+
+eventEmitter.on('orderPlaced', (data) => {
+    io.to('adminRoom').emit('orderPlaced', data)
 })
