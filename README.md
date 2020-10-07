@@ -1,7 +1,6 @@
 # Momo Palace
 
-A webapp which can be used by any restaurant to provide realtime order and delievery functionality to their customers. It also contains admin dashboard through which chef or owner can see active orders and update their status.
-
+A web app that can be used by any restaurant to provide realtime order and delivery functionality to its customers. It also contains an admin dashboard through which the chef or owner can see active orders and update their status.
 Steps for webapp setup in your local machine:
 
 <ins>Step 1:</ins> Type below command in terminal to clone the project.
