@@ -26968,16 +26968,15 @@ function updateStatus(order) {
 
 updateStatus(order);
 var socket = io();
-Object(_admin__WEBPACK_IMPORTED_MODULE_2__["initAdmin"])(socket);
 
 if (order) {
   socket.emit("join", "order_".concat(order._id));
 }
 
 var adminAreaPath = window.location.pathname;
-console.log(adminAreaPath);
 
 if (adminAreaPath.includes('admin')) {
+  Object(_admin__WEBPACK_IMPORTED_MODULE_2__["initAdmin"])(socket);
   socket.emit('join', 'adminRoom');
 }
 
