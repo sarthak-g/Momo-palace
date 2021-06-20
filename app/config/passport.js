@@ -22,12 +22,12 @@ function init(passport) {
     }))
 
     passport.serializeUser((user, done) => {
-        done(null, user._id)
+        done(null, user._id) // attaches user id to req.session.passport.user
     })
 
     passport.deserializeUser((id, done) => {
         User.findById(id, (err, user) => {
-            done(err, user)
+            done(err, user) // attaches user id to req.user
         })
     })
 
